@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd" >
+
+<hibernate-reverse-engineering>
+  <table-filter match-schema="MES518" match-name="WENBO"/>
+  <table-filter match-schema="MES518" match-name="S_AREA"/>
+  <table-filter match-schema="MES518" match-name="S_CEPEVENT"/>
+  <table-filter match-schema="MES518" match-name="S_CEPEVENT_ATTRIBUTE"/>
+  <table-filter match-schema="MES518" match-name="S_CEPEVENT_TYPE"/>
+</hibernate-reverse-engineering>

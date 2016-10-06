@@ -11,12 +11,11 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+
 
 import com.mes.dao.UserDao;
 import com.mes.meta.User;
 
-import freemarker.ext.beans.MapModel;
 
 @Controller
 public class TestUser {
@@ -37,7 +36,7 @@ public class TestUser {
 
 	}
 	
-	@RequestMapping("/users/getHtml")
+	@RequestMapping(value="/users/getHtml")
 	public String getHtml(ModelMap map) throws IOException{
 		map.addAttribute("this", "this is test");
 		return "user";
