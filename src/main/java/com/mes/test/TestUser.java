@@ -41,5 +41,11 @@ public class TestUser {
 		map.addAttribute("this", "this is test");
 		return "user";
 	}
+	
+	@RequestMapping(value="/users/getJson")
+	public String geJson(ModelMap map) throws IOException{
+		map.addAttribute("this", "this is test");
+		return "user";
+	}
 
 }

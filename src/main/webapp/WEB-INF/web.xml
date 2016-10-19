@@ -21,11 +21,11 @@
 	</listener>
 
 	<servlet>
-		<servlet-name>webframe</servlet-name>
+		<servlet-name>example</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>webframe</servlet-name>
+		<servlet-name>example</servlet-name>
 		<url-pattern>/api/*</url-pattern>
 	</servlet-mapping>
 	<error-page>
