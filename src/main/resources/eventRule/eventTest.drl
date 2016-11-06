@@ -1,0 +1,22 @@
+//created on: 2016-11-6
+package com.mes.meta
+
+//list any import classes here.
+import com.mes.meta.Event;
+import com.mes.utils.OutputDisplay;
+
+
+//declare any global variables here
+global OutputDisplay showResults;
+
+
+
+rule "Delay"
+
+    when
+        e:Event( starttime <= Event.DATE )
+    then
+        //actions
+		 System.out.println( e.toString() + "This job is delay" );
+end
+

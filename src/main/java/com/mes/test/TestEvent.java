@@ -1,6 +1,7 @@
 package com.mes.test;
 
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -16,11 +17,11 @@ public class TestEvent {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		long startTime=System.currentTimeMillis();   //获取开始时间
+		
 		ApplicationContext context = new ClassPathXmlApplicationContext("application-context-dao.xml");
 		
 		EventDao eventDao = context.getBean("eventDao",EventDao.class);
-		
-		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
 		/*
 		//任务类型事件
 		eventDao.insertEvent("100001","TaskDelay", "Station5", df.format(new Date()));
@@ -54,13 +55,30 @@ public class TestEvent {
 		eventDao.insertEvent("500003","BoxFault", "Station7", df.format(new Date()));
 		
 		*/
+		
+		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
 		List<Event> events = eventDao.getEvents();
-
+		
 		for (Event event : events) {
-			System.out.println(event.toString());
+			try {
+				Date d1 = df.parse(event.getStarttime());
+				Date d2 = df.parse(event.DATE);
+				System.out.println(d1.getTime()  +"/n this is d2:  "+ d2.getTime());
+				if (d1.getTime() <= d2.getTime()) {
+					System.out.println(event.toString()+"This task is delay");
+				}
+				System.out.println(event.toString()+event.DATE);
+			} catch (ParseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 		
 		((ConfigurableApplicationContext) context).close();
+		
+		long endTime=System.currentTimeMillis(); //获取结束时间
+		System.out.println("程序运行时间： "+(endTime-startTime)+"ms");
+		
 	}
 
 }

@@ -1,12 +1,20 @@
 package com.mes.meta;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Event {
+	
 	private String id;
 	private String name;
 	private String location;
 	private String starttime;
+	
+	static SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+	
+	public static String DATE = df.format(new Date());
+	
+	
 	public String getId() {
 		return id;
 	}
