@@ -17,11 +17,7 @@ public class TestEvent {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		long startTime=System.currentTimeMillis();   //获取开始时间
-		
-		ApplicationContext context = new ClassPathXmlApplicationContext("application-context-dao.xml");
-		
-		EventDao eventDao = context.getBean("eventDao",EventDao.class);
+
 		/*
 		//任务类型事件
 		eventDao.insertEvent("100001","TaskDelay", "Station5", df.format(new Date()));
@@ -55,10 +51,11 @@ public class TestEvent {
 		eventDao.insertEvent("500003","BoxFault", "Station7", df.format(new Date()));
 		
 		*/
-		
+		long startTime=System.currentTimeMillis();   //获取开始时间
+		ApplicationContext context = new ClassPathXmlApplicationContext("application-context-dao.xml");
+		EventDao eventDao = context.getBean("eventDao",EventDao.class);
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
 		List<Event> events = eventDao.getEvents();
-		
 		for (Event event : events) {
 			try {
 				Date d1 = df.parse(event.getStarttime());
@@ -73,12 +70,9 @@ public class TestEvent {
 				e.printStackTrace();
 			}
 		}
-		
 		((ConfigurableApplicationContext) context).close();
-		
 		long endTime=System.currentTimeMillis(); //获取结束时间
 		System.out.println("程序运行时间： "+(endTime-startTime)+"ms");
-		
 	}
 
 }

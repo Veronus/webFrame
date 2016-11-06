@@ -44,31 +44,21 @@ public class TestEventDrool {
 	
 	@Test
 	public void test() {
-		long startTime=System.currentTimeMillis();   //获取开始时间
-		
 		sessionStatefull = KnowledgeSessionHelper.getStatefulKnowledgeSession(kieContainer, "ksession-ruleDelay");
 		OutputDisplay outputDisplay = new OutputDisplay();
 		sessionStatefull.setGlobal("showResults", outputDisplay);
-		
+		long startTime=System.currentTimeMillis();   //获取开始时间
 		ApplicationContext context = new ClassPathXmlApplicationContext("application-context-dao.xml");
 		EventDao eventDao = context.getBean("eventDao",EventDao.class);
-		
 		List<Event> events = eventDao.getEvents();
-
 		for (Event event : events) {
-			
 			System.out.println(event.toString()+event.DATE);
-			
 			sessionStatefull.insert(event);
 			sessionStatefull.fireAllRules();
-			
 		}
-		
 		((ConfigurableApplicationContext) context).close();
-		
 		long endTime=System.currentTimeMillis(); //获取结束时间
 		System.out.println("程序运行时间： "+(endTime-startTime)+"ms");
-		
 	}
 
 }
