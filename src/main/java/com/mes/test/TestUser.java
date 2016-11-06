@@ -22,15 +22,13 @@ public class TestUser {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		ApplicationContext context = new ClassPathXmlApplicationContext("application-context.xml");
+		ApplicationContext context = new ClassPathXmlApplicationContext("application-context-dao.xml");
 		UserDao userDao = context.getBean("userDao", UserDao.class);
 		//userDao.creatTable();
-		userDao.insertUser(1001,"Veronus");
-		userDao.insertUser(1002,"Love caven");
-		userDao.insertUser(1003,"Joe");
+		//userDao.insertUser("zuoan","Veronus");
 		List<User> users = userDao.getUserList();
 		for (User user : users) {
-			System.out.println(user.getUserid()+" name is: "+user.getUsername());
+			System.out.println(user.getUserName()+user.getUserPassword());
 		}
 		((ConfigurableApplicationContext) context).close();
 

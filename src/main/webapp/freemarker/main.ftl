@@ -15,7 +15,7 @@
 </style>
 </head>
 <body>
-	<button id="id1" class="button button-royal" style=><h1>Event</h1>
+	<button id="id1" class="button button-royal" onclick="alert('Welcome!')"><h1>Event</h1>
 	</button>
 	<button id="id1" class="button button-royal" ><h1>Edit CEP</h1>
 	</button>

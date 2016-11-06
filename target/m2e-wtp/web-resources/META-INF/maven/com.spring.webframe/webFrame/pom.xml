@@ -1,12 +1,59 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>com.spring.webframe</groupId>
-  <artifactId>webFrame</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  <packaging>war</packaging>
-  
-  
-  	<dependencies>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.spring.webframe</groupId>
+	<artifactId>webFrame</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>war</packaging>
+
+	<name>Drools :: Sample Maven Project</name>
+	<description>A sample Drools Maven project</description>
+
+	<properties>
+		<runtime.version>6.4.0.Final</runtime.version>
+	</properties>
+
+	<repositories>
+		<repository>
+			<id>jboss-public-repository-group</id>
+			<name>JBoss Public Repository Group</name>
+			<url>http://repository.jboss.org/nexus/content/groups/public/</url>
+			<releases>
+				<enabled>true</enabled>
+				<updatePolicy>never</updatePolicy>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+				<updatePolicy>daily</updatePolicy>
+			</snapshots>
+		</repository>
+	</repositories>
+
+	<dependencies>
+
+		<dependency>
+			<groupId>org.kie</groupId>
+			<artifactId>kie-api</artifactId>
+			<version>${runtime.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.drools</groupId>
+			<artifactId>drools-core</artifactId>
+			<version>${runtime.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.drools</groupId>
+			<artifactId>drools-decisiontables</artifactId>
+			<version>${runtime.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.jbpm</groupId>
+			<artifactId>jbpm-test</artifactId>
+			<version>${runtime.version}</version>
+		</dependency>
+
+
 		<dependency>
 			<groupId>org.freemarker</groupId>
 			<artifactId>freemarker</artifactId>
@@ -43,9 +90,9 @@
 			<artifactId>mysql-connector-java</artifactId>
 			<version>5.1.39</version>
 		</dependency>
-		
-		
-			<dependency>
+
+
+		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>
 			<version>3.0.1</version>
@@ -61,7 +108,7 @@
 			<artifactId>spring-context-support</artifactId>
 			<version>4.2.1.RELEASE</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-core</artifactId>
@@ -72,9 +119,17 @@
 			<artifactId>jackson-databind</artifactId>
 			<version>2.6.4</version>
 		</dependency>
-  
-		
+
+
+		<!-- <dependencyManagement> <dependencies> <dependency> <groupId>org.drools</groupId> 
+			<artifactId>drools-bom</artifactId> <type>pom</type> <version>...</version> 
+			<scope>import</scope> </dependency> ... </dependencies> </dependencyManagement> 
+			<dependencies> <dependency> <groupId>org.kie</groupId> <artifactId>kie-api</artifactId> 
+			</dependency> <dependency> <groupId>org.drools</groupId> <artifactId>drools-compiler</artifactId> 
+			<scope>runtime</scope> </dependency> ... <dependencies> -->
+
+
 	</dependencies>
-	
-		
+
+
 </project>
